@@ -7,4 +7,4 @@ build
 *.pem
 npm-debug.log*
 .DS_Store
-.vercel
+.verceldev.log

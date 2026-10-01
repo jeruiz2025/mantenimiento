@@ -1,0 +1,19 @@
+
+> mantenimiento@0.1.0 dev
+> cross-env TZ=America/Bogota next dev
+
+   ▲ Next.js 15.5.27
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.7:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 2s
+ ○ Compiling /login ...
+ ✓ Compiled /login in 3.6s (638 modules)
+ GET /login 200 in 4063ms
+ ✓ Compiled /api/plano in 474ms (666 modules)
+ GET /api/plano 200 in 1536ms
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 696ms (223 modules)
+[?25h

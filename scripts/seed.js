@@ -1,5 +1,5 @@
-import prisma from "@/lib/prisma";
-import { hashPassword } from "@/lib/security";
+import prisma from "../src/lib/prisma.js";
+import { hashPassword } from "../src/lib/security.js";
 
 async function main() {
   const admin = await prisma.user.upsert({
