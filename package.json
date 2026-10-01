@@ -1,0 +1,33 @@
+{
+  "name": "mantenimiento",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env TZ=America/Bogota next dev",
+    "build": "prisma generate && cross-env TZ=America/Bogota next build",
+    "start": "cross-env TZ=America/Bogota next start",
+    "lint": "eslint",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
+    "db:seed": "node --env-file=.env scripts/seed.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.0.1",
+    "@prisma/client": "^7.0.1",
+    "bcryptjs": "^3.0.2",
+    "next": "^15.5.9",
+    "next-auth": "^4.24.11",
+    "pg": "^8.16.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "cross-env": "^10.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2",
+    "prisma": "^7.0.1",
+    "tailwindcss": "^4"
+  }
+}

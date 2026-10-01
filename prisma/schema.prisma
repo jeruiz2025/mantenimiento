@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      Int      @default(3)
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Plano {
+  id          Int         @id @default(autoincrement())
+  name        String
+  imageData   String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime?   @updatedAt
+  Ubicacion   Ubicacion[]
+}
+
+model Ubicacion {
+  id        Int      @id @default(autoincrement())
+  planoId   Int
+  name      String
+  x         Float
+  y         Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+  Plano     Plano    @relation(fields: [planoId], references: [id])
+  Equipo    Equipo[]
+
+  @@index([planoId])
+}
+
+model Equipo {
+  id            Int             @id @default(autoincrement())
+  nombre        String
+  serial        String?
+  tipo          String
+  marca         String?
+  modelo        String?
+  estado        String          @default("OPERATIVO")
+  ubicacionId   Int
+  observaciones String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime?       @updatedAt
+  Ubicacion     Ubicacion       @relation(fields: [ubicacionId], references: [id])
+  Mantenimiento Mantenimiento[]
+
+  @@index([ubicacionId])
+}
+
+model Mantenimiento {
+  id            Int      @id @default(autoincrement())
+  equipoId      Int
+  fecha         DateTime @db.Timestamp(6)
+  tipo          String
+  responsable   String
+  observaciones String?
+  costo         Float?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime? @updatedAt
+  Equipo        Equipo   @relation(fields: [equipoId], references: [id])
+
+  @@index([equipoId])
+}
