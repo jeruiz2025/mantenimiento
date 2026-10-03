@@ -31,21 +31,37 @@ export async function PUT(request, { params }) {
       marca,
       modelo,
       estado,
+      procesador,
+      memoriaRam,
+      tipoRam,
+      discoDuro,
+      tipoDisco,
+      sistemaOperativo,
+      tarjetaGrafica,
       ubicacionId,
       observaciones,
     } = await request.json();
+
+    const optionalText = (value) => (value !== undefined ? value || null : undefined);
 
     const equipo = await prisma.equipo.update({
       where: { id: Number(id) },
       data: {
         nombre: nombre ?? undefined,
-        serial: serial !== undefined ? serial : undefined,
+        serial: optionalText(serial),
         tipo: tipo ?? undefined,
-        marca: marca !== undefined ? marca : undefined,
-        modelo: modelo !== undefined ? modelo : undefined,
+        marca: optionalText(marca),
+        modelo: optionalText(modelo),
         estado: estado ?? undefined,
+        procesador: optionalText(procesador),
+        memoriaRam: optionalText(memoriaRam),
+        tipoRam: optionalText(tipoRam),
+        discoDuro: optionalText(discoDuro),
+        tipoDisco: optionalText(tipoDisco),
+        sistemaOperativo: optionalText(sistemaOperativo),
+        tarjetaGrafica: optionalText(tarjetaGrafica),
         ubicacionId: ubicacionId !== undefined ? Number(ubicacionId) : undefined,
-        observaciones: observaciones !== undefined ? observaciones : undefined,
+        observaciones: optionalText(observaciones),
       },
     });
     return NextResponse.json(equipo, { status: 200 });

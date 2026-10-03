@@ -33,6 +33,13 @@ export default function EditarEquipoPage() {
           marca: eq.marca || "",
           modelo: eq.modelo || "",
           estado: eq.estado || "OPERATIVO",
+          procesador: eq.procesador || "",
+          memoriaRam: eq.memoriaRam || "",
+          tipoRam: eq.tipoRam || "",
+          discoDuro: eq.discoDuro || "",
+          tipoDisco: eq.tipoDisco || "",
+          sistemaOperativo: eq.sistemaOperativo || "",
+          tarjetaGrafica: eq.tarjetaGrafica || "",
           ubicacionId: eq.ubicacionId || "",
           observaciones: eq.observaciones || "",
         });
@@ -115,7 +122,7 @@ export default function EditarEquipoPage() {
               <input type="text" name="nombre" value={form.nombre} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Serial</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Código / Placa / Serial</label>
               <input type="text" name="serial" value={form.serial} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
             </div>
             <div>
@@ -150,6 +157,46 @@ export default function EditarEquipoPage() {
                 ))}
               </select>
             </div>
+          </div>
+
+          <div className="mt-6">
+            <h2 className="text-lg font-bold text-gray-800 mb-1">ESPECIFICACIONES TÉCNICAS</h2>
+            <p className="text-sm text-gray-500 mb-4">
+              Diligencia estos datos cuando el equipo sea un computador o similar.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Procesador</label>
+                <input type="text" name="procesador" value={form.procesador} onChange={handleChange} placeholder="Ej: Intel Core i5-10400" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Memoria RAM</label>
+                <input type="text" name="memoriaRam" value={form.memoriaRam} onChange={handleChange} placeholder="Ej: 8 GB" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Tipo RAM</label>
+                <input type="text" name="tipoRam" value={form.tipoRam} onChange={handleChange} placeholder="Ej: DDR4" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Disco duro</label>
+                <input type="text" name="discoDuro" value={form.discoDuro} onChange={handleChange} placeholder="Ej: 500 GB" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Tipo de disco</label>
+                <input type="text" name="tipoDisco" value={form.tipoDisco} onChange={handleChange} placeholder="Ej: SSD / HDD" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Sistema operativo</label>
+                <input type="text" name="sistemaOperativo" value={form.sistemaOperativo} onChange={handleChange} placeholder="Ej: Windows 11 Pro" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Tarjeta gráfica</label>
+                <input type="text" name="tarjetaGrafica" value={form.tarjetaGrafica} onChange={handleChange} placeholder="Ej: Intel UHD Graphics 630" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Observaciones</label>
               <textarea name="observaciones" value={form.observaciones} onChange={handleChange} rows={3} className="w-full px-4 py-2 border border-gray-300 rounded-lg" />

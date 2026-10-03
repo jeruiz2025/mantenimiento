@@ -146,7 +146,7 @@ export default function HojaDeVidaPage() {
                 <p className="font-semibold text-gray-900">{equipo.tipo}</p>
               </div>
               <div>
-                <p className="text-gray-500">Serial</p>
+                <p className="text-gray-500">Código / Placa / Serial</p>
                 <p className="font-semibold text-gray-900">{equipo.serial || "-"}</p>
               </div>
               <div>
@@ -179,6 +179,26 @@ export default function HojaDeVidaPage() {
                 <p className="text-gray-900">{equipo.observaciones}</p>
               </div>
             )}
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 mt-6">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">ESPECIFICACIONES TÉCNICAS</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                ["Procesador", equipo.procesador],
+                ["Memoria RAM", equipo.memoriaRam],
+                ["Tipo RAM", equipo.tipoRam],
+                ["Disco duro", equipo.discoDuro],
+                ["Tipo de disco", equipo.tipoDisco],
+                ["Sistema operativo", equipo.sistemaOperativo],
+                ["Tarjeta gráfica", equipo.tarjetaGrafica],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <p className="text-gray-500">{label}</p>
+                  <p className="font-semibold text-gray-900">{value || "-"}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6">

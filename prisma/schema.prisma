@@ -41,19 +41,26 @@ model Ubicacion {
 }
 
 model Equipo {
-  id            Int             @id @default(autoincrement())
-  nombre        String
-  serial        String?
-  tipo          String
-  marca         String?
-  modelo        String?
-  estado        String          @default("OPERATIVO")
-  ubicacionId   Int
-  observaciones String?
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime?       @updatedAt
-  Ubicacion     Ubicacion       @relation(fields: [ubicacionId], references: [id])
-  Mantenimiento Mantenimiento[]
+  id                Int             @id @default(autoincrement())
+  nombre            String
+  serial            String?
+  tipo              String
+  marca             String?
+  modelo            String?
+  estado            String          @default("OPERATIVO")
+  procesador        String?
+  memoriaRam        String?
+  tipoRam           String?
+  discoDuro         String?
+  tipoDisco         String?
+  sistemaOperativo  String?
+  tarjetaGrafica    String?
+  ubicacionId       Int
+  observaciones     String?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime?       @updatedAt
+  Ubicacion         Ubicacion       @relation(fields: [ubicacionId], references: [id])
+  Mantenimiento     Mantenimiento[]
 
   @@index([ubicacionId])
 }
